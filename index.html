@@ -7,179 +7,185 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-          :root {
-            --main-color: #141e30;
-            --secondary-color: #ff6f61;
-            --background-primary: #1f2937;
-            --section-color: #374151;
-            --text-color: #f9fafb;
-        }
+      :root {
+    --main-color: #ffffff; /* Blanc */
+    --secondary-color: #3498db; /* Bleu clair */
+    --background-primary: #f4f6f9; /* Gris clair */
+    --section-color: #ecf0f1; /* Gris plus clair pour les sections */
+    --text-color: #2c3e50; /* Gris foncé */
+}
 
-        body {
-            font-family: 'Tajawal', sans-serif;
-            scroll-behavior: smooth;
-            padding-top: 80px;
-            background-color: var(--background-primary);
-            color: var(--text-color);
-        }
+body {
+    font-family: 'Tajawal', sans-serif;
+    scroll-behavior: smooth;
+    padding-top: 80px;
+    background-color: var(--background-primary);
+    color: var(--text-color);
+}
 
-        .header, .navbar {
-            background-color: var(--main-color);
-            transition: all 0.5s ease-in-out;
-        }
+.header, .navbar {
+    background-color: var(--main-color);
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-        .nav-link {
-            color: var(--text-color) !important;
-            transition: all 0.3s ease;
-        }
+.nav-link {
+    color: var(--text-color) !important;
+    transition: all 0.3s ease;
+}
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--secondary-color) !important;
-            transform: scale(1.08);
-        }
+.nav-link:hover, .nav-link.active {
+    color: var(--secondary-color) !important;
+    transform: scale(1.08) rotate(10deg); /* Animation de survol : agrandissement et légère rotation */
+}
 
-        section {
-            padding: 100px 0;
-            background-color: var(--section-color);
-            color: var(--text-color);
-            animation: fadeInUp 1.2s ease-in-out both;
-        }
+section {
+    padding: 100px 0;
+    background-color: var(--section-color);
+    color: var(--text-color);
+    animation: fadeInUp 1.2s ease-in-out both;
+}
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .container h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-            animation: slideIn 1s ease forwards;
-        }
+.container h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    animation: slideIn 1s ease forwards;
+}
 
-        .container p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            animation: fadeInText 2s ease;
-        }
+.container p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    animation: fadeInText 2s ease;
+}
 
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(255, 111, 97, 0.3);
-        }
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
 
-        #home {
-            min-height: 100vh;
-            background:
-                linear-gradient(rgba(20, 30, 48, 0.8), rgba(20, 30, 48, 0.8)),
-                url('digi pro.jpg') center/cover no-repeat;
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            animation: zoomIn 1.5s ease-in-out;
-        }
+#home {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(52, 152, 219, 0.8), rgba(52, 152, 219, 0.8)),
+        url('digi pro.jpg') center/cover no-repeat;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    animation: zoomIn 1.5s ease-in-out, moveBackground 10s infinite alternate;
+}
 
-        @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
-        #home h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 4px solid var(--secondary-color);
-        }
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 0; }
+    100% { background-position: 0 100%; }
+}
 
-        #home p {
-            font-size: 1.7rem;
-            margin-bottom: 30px;
-            color: var(--text-color);
-            animation: fadeInText 3s ease-in-out;
-        }
+#home h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid var(--secondary-color);
+}
 
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
+#home p {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    animation: fadeInText 3s ease-in-out;
+}
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--secondary-color); }
-        }
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
 
-        @keyframes slideIn {
-            from { transform: translateX(-100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--secondary-color); }
+}
 
-        @keyframes fadeInText {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+@keyframes slideIn {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
 
-        .btn-primary {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            color: #fff;
-            transition: all 0.3s ease;
-        }
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-        .btn-primary:hover {
-            background-color: #ff8578;
-            border-color: #ff8578;
-            color: #fff;
-        }
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+    transition: all 0.3s ease;
+}
 
-        #track {
-            background-color: #141e30;
-            color: var(--secondary-color);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1.2s ease-in-out both;
-        }
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+}
 
-        #track::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,111,97,0.2), transparent);
-            animation: shine 3s infinite;
-        }
+#track {
+    background-color: #ffffff;
+    color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1.2s ease-in-out both;
+}
 
-        @keyframes shine {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
+#track::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(52,152,219,0.2), transparent);
+    animation: shine 3s infinite;
+}
 
-        #track h2 {
-            background-color: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 10px;
-            color: var(--text-color);
-            transition: background 0.3s;
-        }
+@keyframes shine {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
 
-        #track h2:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-        
+#track h2 {
+    background-color: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--text-color);
+    transition: background 0.3s;
+}
 
-        .modal-content, .contact-info, .service-card {
+#track h2:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.contact-info, .service-card, .modal-content {
     animation: popUp 0.5s ease forwards;
 }
 
@@ -187,23 +193,25 @@
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
 .contact-info,
 form.bg-light,
 .modal-content {
-    background-color: #2c3e50; /* لون داكن */
-    color: #ecf0f1; /* نص أبيض */
+    background-color: #ecf0f1; /* Fond clair */
+    color: #2c3e50; /* Texte foncé */
 }
 
 input.form-control, textarea.form-control {
-    background-color: #34495e;
-    color: #fff;
+    background-color: #bdc3c7;
+    color: #2c3e50;
     border: none;
 }
 
 input.form-control::placeholder,
 textarea.form-control::placeholder {
-    color: #bdc3c7;
+    color: #7f8c8d;
 }
+
 form.bg-light, .modal-content {
     animation: fadeSlideUp 0.8s ease-in-out;
 }
@@ -213,123 +221,74 @@ form.bg-light, .modal-content {
     to { opacity: 1; transform: translateY(0); }
 }
 
-
-/* تغيير اللون الخلفي للكارد */
 .contact-info {
-    background-color: #2c3e50; /* لون خلفية الكارد الجديد */
-    border-radius: 8px; /* تعديل الشكل الزوايا */
+    background-color: #ecf0f1;
+    border-radius: 8px;
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* تغيير اللون لحدود الكارد (إذا كان موجود) */
-.contact-info {
-    border: 2px solid #34495e; /* تغيير اللون للحدود */
-}
-
-/* نصوص داخل الكارد (إذا كان النص مش ظاهر بشكل جيد) */
-.contact-info h2,
-.contact-info p,
-.contact-info li,
-.contact-info li a {
-    color: #ffffff; /* تغيير لون النص داخل الكارد */
-}
-
-/* في حالة الفورم داخل الكارد */
-form.bg-light input,
-form.bg-light textarea {
-    background-color: #34495e; /* تغيير اللون الخلفي للفورم داخل الكارد */
-    color: #fff;
-    border: 1px solid #1abc9c; /* تغيير حدود الفورم */
-}
-
-form.bg-light button[type="submit"] {
-    background-color: #1abc9c; /* تغيير لون الزر */
-    color: #fff;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-form.bg-light button[type="submit"]:hover {
-    background-color: #16a085; /* تغيير اللون عند التمرير على الزر */
-}
- 
-
-.contact-info {
-    color: #333; /* هنا يمكنك تغيير اللون الأساسي للنص */
-}
-
 .contact-info h2 {
-    color: #FF5733; /* تغيير لون العنوان */
+    color: #3498db; /* Bleu pour le titre */
 }
 
 .contact-info p {
-    color: #1E90FF; /* تغيير لون الفقرة */
-}
-
-.contact-info ul li {
-    color: #28A745; /* تغيير لون النص في القائمة */
-}
-
-.contact-info input, .contact-info textarea {
-    border-color: #FFD700; /* تغيير لون الحواف للأبراج */
+    color: #2980b9; /* Bleu foncé pour la description */
 }
 
 .contact-info button {
-    background-color: #4CAF50; /* تغيير لون زر الإرسال */
-    color: white; /* اللون الأبيض للنص داخل الزر */
+    background-color: #3498db; /* Bleu */
+    color: white;
 }
 
-/* الأسلوب العام لقائمة الـ Dropdown */
-.dropdown-menu {
-    display: none; /* القائمة مخفية في البداية */
+/* Logo animé (rotation fluide) */
+#home img {
+    animation: rotateLogo 5s linear infinite;
     position: absolute;
-    background-color: #000; /* خلفية سوداء */
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px; /* Ajuster la taille du logo */
+}
+
+@keyframes rotateLogo {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-50%) rotate(90deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(180deg);
+    }
+    75% {
+        transform: translateX(-50%) rotate(270deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+/* Dropdown avec effet d'animation */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
     min-width: 160px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
     z-index: 1;
     opacity: 0;
-    transform: translateY(-30px) scale(0.9); /* إخفاء القائمة بشكل مائل */
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* تأثير حركة قوي */
+    transform: translateY(-30px) scale(0.9);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-/* عند تمرير الفأرة على الـ Dropdown (ظهور القائمة) */
 .dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
-    transform: translateY(0) scale(1); /* تخرج القائمة في الوضع الطبيعي */
-    animation: bounceIn 1s ease-in-out; /* أنيميشن ديناميكي قوي مع تأثير الحركة */
+    transform: translateY(0) scale(1);
+    animation: bounceIn 1s ease-in-out;
 }
 
-/* تأثير الحركة على العناصر داخل الـ Dropdown */
-.dropdown-menu .dropdown-item {
-    color: #e74c3c; /* اللون الأحمر للنص */
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    transition: all 0.4s ease-out; /* تأثير سلس للنص */
-    transform: translateX(-50px); /* إخفاء العناصر على اليسار */
-}
-
-/* عند التمرير على العناصر داخل الـ Dropdown */
-.dropdown-menu .dropdown-item:hover {
-    background-color: #e74c3c; /* تغيير الخلفية عند التمرير */
-    color: #fff; /* اللون الأبيض للنص عند التمرير */
-    transform: translateX(0) scale(1.1); /* العنصر يكبر شوي ويعود لوضعه الطبيعي */
-}
-
-/* تأثير تدوير العنصر عند الضغط عليه */
-.dropdown-menu .dropdown-item:active {
-    transform: scale(0.98) translateX(5px) rotate(15deg); /* العنصر يتقلص ويتحرك مع دوران خفيف */
-}
-
-/* تأثير الحركات الديناميكية على العناصر عند الظهور */
-.dropdown:hover .dropdown-menu .dropdown-item {
-    animation: slideInFromLeft 0.5s forwards; /* إضافة الأنيميشن للعناصر */
-}
-
-/* تأثير الـ bounce عند ظهور الـ Dropdown */
 @keyframes bounceIn {
     0% {
         opacity: 0;
@@ -345,18 +304,125 @@ form.bg-light button[type="submit"]:hover {
     }
 }
 
-/* تأثير دخول العناصر من اليسار */
-@keyframes slideInFromLeft {
+/* Ajout d'un effet de transformation pour les boutons */
+.btn-primary, .dropdown-item, .navbar-brand {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .dropdown-item:hover, .navbar-brand:hover {
+    transform: scale(1.1);
+    background-color: #2980b9;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    animation: buttonPulse 0.8s ease-out infinite alternate;
+}
+
+/* Animation de pulsation pour les boutons */
+@keyframes buttonPulse {
     0% {
-        opacity: 0;
-        transform: translateX(-50px); /* العنصر يدخل من اليسار */
+        transform: scale(1);
     }
     100% {
-        opacity: 1;
-        transform: translateX(0);
+        transform: scale(1.1);
     }
 }
 
+/* Animation dynamique du dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    animation: dropdownShow 0.5s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: bounceIn 1s ease-in-out;
+}
+
+@keyframes dropdownShow {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Effet d'animation pour le survol des éléments dans le dropdown */
+.dropdown-menu .dropdown-item {
+    color: #3498db;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition: all 0.3s ease-out;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #3498db;
+    color: #fff;
+    transform: translateX(0) scale(1.1);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.dropdown-menu .dropdown-item:active {
+    transform: scale(0.98) translateX(5px) rotate(15deg);
+}
+
+/* Animation de rebond pour le dropdown */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animation générale pour les boutons */
+.btn-primary:focus, .dropdown-item:focus, .navbar-brand:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+}
+
+/* Pour l'animation dynamique de "track" */
+#track {
+    transition: transform 0.3s ease-in-out;
+}
+
+#track:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Animation de texte pour les sections et titres */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    animation: fadeInUp 0.8s ease-in-out;
+}
 
     </style>
 </head>
@@ -516,7 +582,7 @@ form.bg-light button[type="submit"]:hover {
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <form class="bg-dark p-4 rounded" id="contactForm">
+                    <form class="bg-Secondary  p-4 rounded" id="contactForm">
                         <div class="mb-3">
                             <label class="form-label">Your Name</label>
                             <input type="text" class="form-control" required>
@@ -607,6 +673,21 @@ form.bg-light button[type="submit"]:hover {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Scroll reveal animation
+const scrollReveal = () => {
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    const elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      el.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', scrollReveal);
     // Load Services
 function loadServices() {
     const container = document.getElementById('services-container');
