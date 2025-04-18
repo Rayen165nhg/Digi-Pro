@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGI PRO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+          :root {
+            --main-color: #141e30;
+            --secondary-color: #ff6f61;
+            --background-primary: #1f2937;
+            --section-color: #374151;
+            --text-color: #f9fafb;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+            padding-top: 80px;
+            background-color: var(--background-primary);
+            color: var(--text-color);
+        }
+
+        .header, .navbar {
+            background-color: var(--main-color);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary-color) !important;
+            transform: scale(1.08);
+        }
+
+        section {
+            padding: 100px 0;
+            background-color: var(--section-color);
+            color: var(--text-color);
+            animation: fadeInUp 1.2s ease-in-out both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            animation: slideIn 1s ease forwards;
+        }
+
+        .container p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            animation: fadeInText 2s ease;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 111, 97, 0.3);
+        }
+
+        #home {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(20, 30, 48, 0.8), rgba(20, 30, 48, 0.8)),
+                url('digi pro.jpg') center/cover no-repeat;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            animation: zoomIn 1.5s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid var(--secondary-color);
+        }
+
+        #home p {
+            font-size: 1.7rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            animation: fadeInText 3s ease-in-out;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--secondary-color); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff8578;
+            border-color: #ff8578;
+            color: #fff;
+        }
+
+        #track {
+            background-color: #141e30;
+            color: var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.2s ease-in-out both;
+        }
+
+        #track::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,111,97,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        #track h2 {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            color: var(--text-color);
+            transition: background 0.3s;
+        }
+
+        #track h2:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+
+        .modal-content, .contact-info, .service-card {
+    animation: popUp 0.5s ease forwards;
+}
+
+@keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.contact-info,
+form.bg-light,
+.modal-content {
+    background-color: #2c3e50; /* لون داكن */
+    color: #ecf0f1; /* نص أبيض */
+}
+
+input.form-control, textarea.form-control {
+    background-color: #34495e;
+    color: #fff;
+    border: none;
+}
+
+input.form-control::placeholder,
+textarea.form-control::placeholder {
+    color: #bdc3c7;
+}
+form.bg-light, .modal-content {
+    animation: fadeSlideUp 0.8s ease-in-out;
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* تغيير اللون الخلفي للكارد */
+.contact-info {
+    background-color: #2c3e50; /* لون خلفية الكارد الجديد */
+    border-radius: 8px; /* تعديل الشكل الزوايا */
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تغيير اللون لحدود الكارد (إذا كان موجود) */
+.contact-info {
+    border: 2px solid #34495e; /* تغيير اللون للحدود */
+}
+
+/* نصوص داخل الكارد (إذا كان النص مش ظاهر بشكل جيد) */
+.contact-info h2,
+.contact-info p,
+.contact-info li,
+.contact-info li a {
+    color: #ffffff; /* تغيير لون النص داخل الكارد */
+}
+
+/* في حالة الفورم داخل الكارد */
+form.bg-light input,
+form.bg-light textarea {
+    background-color: #34495e; /* تغيير اللون الخلفي للفورم داخل الكارد */
+    color: #fff;
+    border: 1px solid #1abc9c; /* تغيير حدود الفورم */
+}
+
+form.bg-light button[type="submit"] {
+    background-color: #1abc9c; /* تغيير لون الزر */
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+form.bg-light button[type="submit"]:hover {
+    background-color: #16a085; /* تغيير اللون عند التمرير على الزر */
+}
+ 
+
+.contact-info {
+    color: #333; /* هنا يمكنك تغيير اللون الأساسي للنص */
+}
+
+.contact-info h2 {
+    color: #FF5733; /* تغيير لون العنوان */
+}
+
+.contact-info p {
+    color: #1E90FF; /* تغيير لون الفقرة */
+}
+
+.contact-info ul li {
+    color: #28A745; /* تغيير لون النص في القائمة */
+}
+
+.contact-info input, .contact-info textarea {
+    border-color: #FFD700; /* تغيير لون الحواف للأبراج */
+}
+
+.contact-info button {
+    background-color: #4CAF50; /* تغيير لون زر الإرسال */
+    color: white; /* اللون الأبيض للنص داخل الزر */
+}
+
+/* الأسلوب العام لقائمة الـ Dropdown */
+.dropdown-menu {
+    display: none; /* القائمة مخفية في البداية */
+    position: absolute;
+    background-color: #000; /* خلفية سوداء */
+    min-width: 160px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9); /* إخفاء القائمة بشكل مائل */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* تأثير حركة قوي */
+}
+
+/* عند تمرير الفأرة على الـ Dropdown (ظهور القائمة) */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1); /* تخرج القائمة في الوضع الطبيعي */
+    animation: bounceIn 1s ease-in-out; /* أنيميشن ديناميكي قوي مع تأثير الحركة */
+}
+
+/* تأثير الحركة على العناصر داخل الـ Dropdown */
+.dropdown-menu .dropdown-item {
+    color: #e74c3c; /* اللون الأحمر للنص */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition: all 0.4s ease-out; /* تأثير سلس للنص */
+    transform: translateX(-50px); /* إخفاء العناصر على اليسار */
+}
+
+/* عند التمرير على العناصر داخل الـ Dropdown */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #e74c3c; /* تغيير الخلفية عند التمرير */
+    color: #fff; /* اللون الأبيض للنص عند التمرير */
+    transform: translateX(0) scale(1.1); /* العنصر يكبر شوي ويعود لوضعه الطبيعي */
+}
+
+/* تأثير تدوير العنصر عند الضغط عليه */
+.dropdown-menu .dropdown-item:active {
+    transform: scale(0.98) translateX(5px) rotate(15deg); /* العنصر يتقلص ويتحرك مع دوران خفيف */
+}
+
+/* تأثير الحركات الديناميكية على العناصر عند الظهور */
+.dropdown:hover .dropdown-menu .dropdown-item {
+    animation: slideInFromLeft 0.5s forwards; /* إضافة الأنيميشن للعناصر */
+}
+
+/* تأثير الـ bounce عند ظهور الـ Dropdown */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* تأثير دخول العناصر من اليسار */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); /* العنصر يدخل من اليسار */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header fixed-top">
+        <nav class="container navbar navbar-expand-lg">          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#services">All Services</a></li>
+                            <li><a class="dropdown-item" href="#sponsor">Sponsor</a></li>
+                            <li><a class="dropdown-item" href="#site-web">Website Design</a></li>
+                            <li><a class="dropdown-item" href="#logo">Logo Design</a></li>
+                            <li><a class="dropdown-item" href="#marketing">Digital Marketing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#track">Track Order</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Home Section -->
+    <section id="home" class="bg-light text-dark">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">مرحبًا بك في DIGI PRO </h1>
+            <h2> <p>نطورو وجودك الرقمي بأفكار عصرية ونتائج ملموسة</p></h2>
+            <p class="lead">📍 هل لديك مشروع… ولكنك لم تبدأ بعد؟ </p>
+            <p>تحلم بالانتشار والتميز؟ DIGI PRO هنا لتبدأ معك من الصفر!</p>
+            <p>🛠️ خدماتنا </p>
+            <ul class="list-unstyled d-inline-block text-start">
+                <li class="mb-2">✔️ تصميم شعار احترافي </li>
+                <li class="mb-2">✔️ تطوير مواقع إلكترونية عصرية </li>
+                <li class="mb-2">✔️ حملات إعلانية مدفوعة على فيسبوك وإنستغرام </li>
+                <li class="mb-2">✔️ بناء هوية رقمية كاملة لمشروعك </li>
+            </ul>
+            <p>💡 لماذا DIGI PRO؟</p>
+            <ul class="list-unstyled d-inline-block text-start">
+                <li class="mb-2">🔹 نعرف السوق </li>
+                <li class="mb-2">🔹 نعمل بإبداع </li>
+                <li class="mb-2">🔹 نرافقك خطوة بخطوة نحو النجاح </li>
+            </ul>
+            <p>📲 تواصل معنا اليوم وابدأ رحلتك نحو التميز الرقمي!</p>
+            <p>DIGI PRO — انطلاقتك الرقمية تبدأ من هنا.</p>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" >
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row" id="services-container"></div>
+        </div>
+    </section>
+    <!-- Site Web Section -->
+    <section id="site-web" >
+        <div class="container">
+            <h2 class="text-center mb-5">Website Design</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/site-web.jpg" class="img-fluid rounded" alt="Website Design">
+                </div>
+                <div class="col-md-6">
+                    <p class="lead">نصمملك موقع واب احترافي، سهل الاستعمال، سريع ومتوافق مع الهاتف، يعكس هويتك ويزيد من ثقة الحرفاء </p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal" data-service="Website Design">Order Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Logo Section -->
+    <section id="logo">
+        <div class="container">
+            <h2 class="text-center mb-5">Logo Design</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/logo.jpg" class="img-fluid rounded" alt="Logo Design">
+                </div>
+                <div class="col-md-6">
+                    <p class="lead">تصميمات احترافية وفريدة لعلامتك التجارية.</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal" data-service="Logo Design">Order Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- sponsor Section -->
+     <section id="sponsor" >
+        <div class="container">
+            <h2 class="text-center mb-5">sponsor</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/sponsor.jpg" class="img-fluid rounded" alt="sponsor">
+                </div>
+                <div class="col-md-6">
+                    <p class="lead">نقومو  بحملات إشهارية على فيسبوك وإنستغرام باش توصل لأكثر عدد ممكن من الحرفاء المحتملين.</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal" data-service="sponsor">Order Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Marketing Section -->
+    <section id="marketing">
+        <div class="container">
+            <h2 class="text-center mb-5">Digital Marketing</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/marketing.jpg" class="img-fluid rounded" alt="Digital Marketing">
+                </div>
+                <div class="col-md-6">
+                    <p>نساعدك في بناء خطة تسويق فعّالة على السوشيال ميديا ونزيد في التفاعل والمبيعات متاعك.</p>
+
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal" data-service="Digital Marketing">Order Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info bg-light p-4 rounded">
+                        <h4>Contact Information</h4>
+                        <p>تحب تعرف أكثر؟ توصل معنا عبر واتساب أو إنستغرام ونردو عليك في أقرب وقت.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="fas fa-phone me-2"></i>
+                                +216 93076977
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-envelope me-2"></i>
+                                contact@digipro.tn
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                Tunisia, Sfax
+                            </li>
+                        </ul>
+                        <div class="map-container mt-4">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204555.9844760026!2d10.658788600000001!3d34.74055695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13002c41f84d59e1%3A0x9e1c0a0d012e2b00!2z2YXYsdmD2LIg2KfZhNiq2YTYqNin2YrYqQ!5e0!3m2!1sar!2stn!4v1717186747037!5m2!1sar!2stn" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form class="bg-dark p-4 rounded" id="contactForm">
+                        <div class="mb-3">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" required="\d{8}">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Order Tracking Section -->
+    <section id="track" class="bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Track Order</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form id="trackForm" class="bg-white p-4 rounded shadow">
+                        <div class="mb-3">
+                            <p>عملت طلب و تحب تعرف فين وصل؟ تواصل معنا و نعطيوك كل التفاصيل.</p>
+                            <label class="form-label">Order ID</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Track</button>
+                    </form>
+                    <div id="trackResult" class="mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p> All Rights Reserved © 2025 DIGI PRO</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/DIGI.PRO.TN" class="text-white mx-2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Order Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="orderForm" onsubmit="sendOrder(event)">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label>Full Name</label>
+                            <input name="name" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Phone Number</label>
+                            <input name="phone" type="tel" class="form-control" required="\d{8}">
+                        </div>
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input name="email" type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Service Requested</label>
+                            <input name="service" type="text" class="form-control" id="selectedService" readonly>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+    // Load Services
+function loadServices() {
+    const container = document.getElementById('services-container');
+    const services = [
+    
+    ];
+
+    services.forEach(service => {
+        const card = `
+            <div class="col-md-4">
+                <div class="card service-card h-100" id="${service.serviceEnglish.replace(/\s+/g, '-').toLowerCase()}">
+                    <img src="${service.image}" class="card-img-top" alt="${service.title}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">${service.title}</h5>
+                        <p class="card-text">${service.description}</p>
+                        <button class="btn btn-primary" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#orderModal"
+                                data-service="${service.serviceEnglish}">
+                            Order Service
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.innerHTML += card;
+    });
+}
+
+// Scroll animation
+function setupAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show-card');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card').forEach(card => {
+        observer.observe(card);
+    });
+}
+
+let orders = JSON.parse(localStorage.getItem('orders')) || {};
+
+function generateOrderId() {
+    return 'DIGI-' + Date.now();
+}
+
+function showError(input, message) {
+    let errorDiv = input.nextElementSibling;
+    if (!errorDiv || !errorDiv.classList.contains("text-danger")) {
+        errorDiv = document.createElement("div");
+        errorDiv.className = "text-danger mt-1";
+        input.parentNode.appendChild(errorDiv);
+    }
+    errorDiv.textContent = message;
+}
+
+function clearErrors(form) {
+    form.querySelectorAll(".text-danger").forEach(el => el.remove());
+}
+
+async function sendOrder(e) {
+    e.preventDefault();
+    const form = e.target;
+    clearErrors(form);
+
+    const nameInput = form.querySelector('[name="name"]');
+    const phoneInput = form.querySelector('[name="phone"]');
+    const emailInput = form.querySelector('[name="email"]');
+    const serviceInput = form.querySelector('[name="service"]');
+
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const email = emailInput.value.trim();
+    const service = serviceInput.value.trim();
+
+    let hasError = false;
+
+    // Validate Full Name
+    if (!name) {
+        showError(nameInput, "Veuillez renseigner ce champ.");
+        hasError = true;
+    }
+
+    // Validate Phone Number
+    if (!phone) {
+        showError(phoneInput, "Veuillez renseigner ce champ.");
+        hasError = true;
+    } else if (!/^\d{8}$/.test(phone)) {
+        showError(phoneInput, "Numéro invalide (8 chiffres).");
+        hasError = true;
+    }
+
+    // Validate Email
+    if (!email) {
+        showError(emailInput, "Veuillez renseigner ce champ.");
+        hasError = true;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError(emailInput, "Email invalide.");
+        hasError = true;
+    }
+
+    // Validate Service
+    if (!service) {
+        showError(serviceInput, "Veuillez sélectionner un service.");
+        hasError = true;
+    }
+
+    if (hasError) return;
+
+    const orderDetails = {
+        name,
+        phone,
+        email,
+        service,
+        status: 'قيد المراجعة / Under Review',
+        date: new Date().toLocaleDateString()
+    };
+
+    try {
+        await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            name: name,
+            email: email,
+            phone: phone,
+            service: service
+        }, 'YOUR_USER_ID');
+
+        const orderId = generateOrderId();
+        orders[orderId] = orderDetails;
+        localStorage.setItem('orders', JSON.stringify(orders));
+
+        alert(`Votre commande a été envoyée avec succès ! Code : ${orderId}`);
+        bootstrap.Modal.getInstance(document.getElementById('orderModal')).hide();
+        form.reset();
+    } catch (err) {
+        alert("Erreur : " + err.message);
+    }
+}
+
+function handleContactForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    clearErrors(form);
+
+    const nameInput = form.querySelector('[name="contact-name"]');
+    const phoneInput = form.querySelector('[name="contact-phone"]');
+    const messageInput = form.querySelector('[name="contact-message"]');
+
+    let hasError = false;
+
+    if (!nameInput.value.trim()) {
+        showError(nameInput, "Veuillez renseigner ce champ.");
+        hasError = true;
+    }
+
+    if (!phoneInput.value.trim()) {
+        showError(phoneInput, "Veuillez renseigner ce champ.");
+        hasError = true;
+    } else if (!/^\d{8}$/.test(phoneInput.value.trim())) {
+        showError(phoneInput, "Numéro invalide (8 chiffres).");
+        hasError = true;
+    }
+
+    if (!messageInput.value.trim()) {
+        showError(messageInput, "Veuillez écrire un message.");
+        hasError = true;
+    }
+
+    if (!hasError) {
+        alert("Message envoyé avec succès !");
+        form.reset();
+    }
+}
+
+function setupSponsorNavScroll() {
+    const sponsorLink = document.querySelector('#nav-sponsor');
+    if (sponsorLink) {
+        sponsorLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sponsorCard = document.getElementById('sponsor');
+            if (sponsorCard) {
+                sponsorCard.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    emailjs.init('YOUR_USER_ID');
+
+    loadServices();
+    setupAnimations();
+    setupSponsorNavScroll();
+
+    const orderForm = document.getElementById('orderForm');
+    if (orderForm) {
+        orderForm.addEventListener('submit', sendOrder);
+    }
+
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactForm);
+    }
+
+    document.getElementById('orderModal')?.addEventListener('show.bs.modal', event => {
+        const service = event.relatedTarget?.getAttribute('data-service');
+        document.getElementById('selectedService').value = service;
+    });
+
+    document.getElementById('trackForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const orderId = document.querySelector('#trackForm input').value;
+        const resultDiv = document.getElementById('trackResult');
+
+        if (orders[orderId]) {
+            resultDiv.innerHTML = `
+                <div class="alert alert-success">
+                    <h5>Statut commande #${orderId}</h5>
+                    <p>Service : ${orders[orderId].service}</p>
+                    <p>Statut : ${orders[orderId].status}</p>
+                    <p>Date : ${orders[orderId].date}</p>
+                </div>
+            `;
+        } else {
+            resultDiv.innerHTML = '<div class="alert alert-danger">ID invalide</div>';
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        header.classList.toggle('shadow-lg', window.scrollY > 50);
+    });
+});
+    </script>
+ 
+</body>
+</html>
